@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.6.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-redux": "^7.1.1",
+    "react-scripts": "3.2.0",
+    "react-textfit": "^1.1.0",
+    "redux": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,5 +31,33 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
+    "husky": "^2.4.1",
+    "lint-staged": ">=8",
+    "prettier": "1.18.2",
+    "redux-mock-store": "^1.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "./node_modules/prettier/bin-prettier.js --write \"src/**/*.js\"",
+      "git add"
+    ]
+  },
+  "presets": [
+    [
+      "react-app",
+      {
+        "absoluteRuntime": false
+      }
+    ]
+  ]
 }
